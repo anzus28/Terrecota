@@ -1,0 +1,50 @@
+﻿@model Infraestructure.Models.Incidencias
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Estas seguro de borrar esto?</h3>
+<div>
+    <h4>Incidencias</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.name)
+        </dd>
+
+    </dl>
+   
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "IndexAdmin")
+        </div>
+    }
+</div>

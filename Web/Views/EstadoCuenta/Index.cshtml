@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Infraestructure.Models.Residencia>
+
+@{
+    ViewBag.Title = "ResidenciaCuenta";
+}
+
+<br />
+<h2>Cuentas por Residencia</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.owner)
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.owner)
+            </td>
+
+
+            <td>
+
+                @Html.ActionLink("Historial pagos", "PagosCancelados", new { id = item.idHome })|
+                @Html.ActionLink("Deudas pendientes", "Deudas", new { id = item.idHome })|
+                @*@Html.ActionLink("Delete", "Delete", new { id = item.idHome })
+                @Html.ActionLink("Edit", "Edit", new { id = item.idHome }) |*@
+            </td>
+        </tr>
+    }
+
+</table>

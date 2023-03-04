@@ -1,0 +1,73 @@
+﻿@model Infraestructure.Models.Residencia
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+<h2>Detalles de la residencia</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Propietario
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.owner)
+        </dd>
+
+        <dt>
+            Número de residentes
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nResidents)
+        </dd>
+
+        <dt>
+            Número de autos
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nCars)
+        </dd>
+
+        <dt>
+            Número de condominio
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nCondominium)
+        </dd>
+
+        <dt>
+            Estado
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            Fecha de inicio
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateBegin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+   <!-- @Html.ActionLink("Edit", "Edit", new { id = Model.idHome }) | -->
+    @Html.ActionLink("Regresar", "Index")
+</p>

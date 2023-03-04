@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Infraestructure.Models.Residencia>
+
+@{
+    ViewBag.Title = "IndexAdmin";
+}
+
+<h2>IndexAdmin</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.owner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nResidents)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nCars)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nCondominium)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateBegin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario.name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.owner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nResidents)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nCars)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nCondominium)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateBegin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario.name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idHome }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idHome }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idHome })
+        </td>
+    </tr>
+}
+
+</table>

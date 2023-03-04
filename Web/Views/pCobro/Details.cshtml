@@ -1,0 +1,61 @@
+﻿@model Infraestructure.Models.pCobro
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+
+<div>
+    <h4>Planes de Cobro</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+          Descripción
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+           Fecha
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+
+    </dl>
+    <p class="card-text">
+        <i class="fa-solid fa-bookmark"></i> <b>
+            Rubros:<b>
+                <ul>
+                    @foreach (var c in Model.pCobroDetalle)
+                    {
+                        <li>@c.description<p> costo: &cent;@c.amount</p> </li>
+
+                    }
+                </ul>
+    </p>
+
+    <br>
+
+
+    <b>Total:</b>
+    @{ var intr = 0;
+
+        foreach (var c in Model.pCobroDetalle)
+        {
+
+
+            intr += (int)@c.amount;
+        } <p>
+            &cent;
+            @intr
+        </p>
+    }
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.idCollectionPlan }) |*@
+    @Html.ActionLink("Regresar atrás", "Index")
+</p>

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Infraestructure.Models.pCobro>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+
+<div class="accordion" id="accordionExample">
+    <h2>Planes de cobro</h2>
+    @foreach (var item in Model)
+    {
+
+        <div class="accordion-item">
+
+            <h3 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+
+                    @Html.DisplayFor(modelItem => item.description)
+                </button>
+            </h3>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+                <div class="accordion-body">
+
+
+
+                    <b>Total:</b>
+                    @{ var intr = 0;
+
+                        foreach (var c in item.pCobroDetalle)
+                        {
+
+
+                            intr += (int)@c.amount;
+                        } <p>&cent;
+                    @intr
+                        </p>
+                    }
+
+
+
+                    <br />
+                    <p>
+
+                        @Html.ActionLink("Detalles", "Details", new { id = item.idCollectionPlan }) |
+                        @*@Html.ActionLink("Delete", "Delete", new { id = item.idCollectionPlan })
+                        @Html.ActionLink("Edit", "Edit", new { id = item.idCollectionPlan }) |*@
+                    </p>
+
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+    }
+</div>

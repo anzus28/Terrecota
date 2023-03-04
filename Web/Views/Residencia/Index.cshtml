@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Infraestructure.Models.Residencia>
+
+@{
+    ViewBag.Title = "Residencias";
+}
+
+<br />
+
+<h2>Residencias</h2>
+
+<!--
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+-->
+<table class="table">
+    <tr>
+        <th>
+            Propietario
+        </th>
+
+        <th>
+            Estado
+        </th>
+        <th>
+            Fecha de inicio
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.owner)
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateBegin)
+            </td>
+
+            <td>
+                @Html.ActionLink("Detalles", "Details", new { id = item.idHome }) |
+                <!--  @Html.ActionLink("Delete", "Delete", new { id = item.idHome })
+                        @Html.ActionLink("Edit", "Edit", new { id = item.idHome }) |
+                 -->
+            </td>
+        </tr>
+    }
+
+</table>
